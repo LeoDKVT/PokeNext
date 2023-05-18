@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 
 // Get pokemons
-async function getStaticProps() {
+async function getData() {
   const maxPokemons = 251;
   const api = `https://pokeapi.co/api/v2/pokemon/`;
   const res = await fetch(`${api}/?limit=${maxPokemons}`);
@@ -11,7 +11,7 @@ async function getStaticProps() {
 }
 
 export default async function Home() {
-  const data = await getStaticProps();
+  const data = await getData();
 
   // add pokemon index
   data.results.forEach((item, index) => {
